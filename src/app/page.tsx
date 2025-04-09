@@ -1,17 +1,10 @@
 import { House, Building2, Utensils, CalendarDays, MapPin } from "lucide-react";
-import { Merriweather, Dancing_Script } from "next/font/google";
+
 import Image from "next/image";
 import Menu from "./components/Menu";
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-const dancing_script = Dancing_Script({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import Reservation from "./components/Reservation";
+import Location from "./components/Location";
+import { dancingScript, merriweather } from "./styles/font";
 
 export default function Home() {
   return (
@@ -24,7 +17,7 @@ export default function Home() {
             🍷
             <a
               href="#"
-              className={`text-[#FFD700] text-2xl ${dancing_script.className} hover:text-[#E78A43] transition`}
+              className={`text-[#FFD700] text-2xl ${dancingScript.className} hover:text-[#E78A43] transition`}
             >
               Le Cigare Volant
             </a>
@@ -90,7 +83,7 @@ export default function Home() {
           <div className="relative text-center text-white z-10">
             <h1 className="text-5xl font-semibold font-serif text-[#FFD700] drop-shadow-lg">
               Dr. Frasier Crane’s{" "}
-              <span className={dancing_script.className}>Le Cigare Volant</span>
+              <span className={dancingScript.className}>Le Cigare Volant</span>
             </h1>
             <div className="mt-2 text-2xl italic text-[#E78A43]">
               The food here is to die for...
@@ -155,10 +148,23 @@ export default function Home() {
         {/* Menu */}
         <section
           id="menu"
-          className="flex justify-center items-center bg-[url('/images/rest3.jpeg')] bg-fixed bg-cover bg-center relative h-screen"
+          className="flex justify-center items-center bg-[url('/images/rest3.jpeg')] bg-fixed bg-cover bg-center relative h-[70vh]"
         >
           <div className="absolute inset-0 bg-black/30" />
           <Menu />
+        </section>
+
+        {/* Reservation */}
+        <section
+          id="reservation"
+          className="flex justify-center items-center bg-[url('/images/reservation.jpg')] bg-fixed bg-center relative h-[50vh]"
+        >
+          <Reservation />
+        </section>
+
+        {/* Location */}
+        <section id="location" className="bg-black/90 text-white py-8 mt-8">
+          <Location />
         </section>
       </main>
     </>
